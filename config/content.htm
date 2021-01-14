@@ -161,3 +161,33 @@
 <p><span><img alt="" height="26" src="/images/成功1.png" width="500"/></span></p>
 <p><span>🔼下載完成後進行網頁改版並推送即可解決</span></p>
 <h1>SSH</h1>
+<h4>Key的新建</h4>
+<p>可參考<a href="http://mde.tw/wcmj2020/content/%E4%BB%A5%20SSH%20%E7%B6%AD%E8%AD%B7%E5%80%89%E5%84%B2.html">網頁</a>內有詳細的設定流程。</p>
+<h4>批次檔設定</h4>
+<p>執行隨身碟 SciTE.exe ( 位於 201906_fall\data\wscite415\wscite 目錄下 )</p>
+<p><span lang="zh-TW">開啟</span><span lang="zh-TW"><span face="Calibri"> start_mdecourse.bat 並加入</span></span></p>
+<p lang="x-none">REM for putty</p>
+<p lang="x-none">Set GIT_HOME=%Cdisk%:\portablegit\bin\</p>
+<p lang="x-none">Set GIT_SSH=%Disk%:\putty\plink.exe</p>
+<h4>SSH 設定</h4>
+<p><span lang="zh-TW">到 </span><span lang="en-US">.ssh </span><span lang="zh-TW">的目錄下<br/></span><span lang="x-none"><span face="Microsoft JhengHei">編輯 </span></span><span lang="x-none">config,插入</span></p>
+<p><span lang="en-US">P</span><span lang="x-none">roxy Command y:/putty/plink.exe github.com %h %p</span></p>
+<p><span lang="x-none">並註解掉</span></p>
+<p><span lang="x-none">IdentityFile "y:\home_mdecourse\.ssh\id_rsa"</span></p>
+<p><span lang="x-none"><img alt="" height="139" src="/images/SciTE_ssh_config.png" width="400"/></span></p>
+<h4>設定 SSH key 的使用配置 ( 使用 Ipv 6 網路 )</h4>
+<p>先下載 <a href="http://mde.tw/cp2019/content/USB%20%E7%A8%8B%E5%BC%8F%E7%B3%BB%E7%B5%B1.html">putty</a>  , 放到可攜系統的 data 目錄底下</p>
+<h4>Key 轉換 ( 此設定方法是拿先前的 <span>Open SSH key</span><span> </span>)</h4>
+<p>先建立一個 key ( 若之前已經有 Open SSH 的 key 就可以直接用那把 key )<br/>執行 puttygen.exe <br/>載入一個 <span>Open SSH 的 key</span></p>
+<p><span><img alt="" height="402" src="/images/puttygen_loadkey.png" width="400"/></span></p>
+<p>*p.s.  若是使用之前的 key , bits 數請寄的設定為 4096 , 轉換成的類型請設定成 rsa <br/>轉存成 rsa 的 prviate key ( ppk檔 )</p>
+<p><img alt="" height="402" src="/images/puttygen_privatekey.png" width="400"/></p>
+<h4>Putty 設定</h4>
+<p>執行 putty.exe<br/>建立一個 session 叫 github.com</p>
+<p>Host Name : github.com<br/>Port : 22<br/>Connection type : SSH</p>
+<p><img alt="" height="399" src="/images/putty_set_session.png" width="400"/></p>
+<p>設定 proxy：</p>
+<p>Proxy type : HTTP<br/><span>Proxy hostname :  [2001:288:6004:17::7]     Port : 3128<br/></span>Do DNS name lookup at proxy end :  Auto<br/>Username :  kmolab<br/>Password : kmolab</p>
+<p>設定 SSH 底下的 Auth</p>
+<p><span lang="x-none">Private key file for authentication :  </span><span lang="en-US">( 請指定 rsa-</span><span lang="x-none">key<span> </span></span><span lang="zh-TW">的位置 </span><span lang="en-US">)</span></p>
+<p><span lang="en-US">(</span><span lang="en-US">需指定 ppk 檔 </span><span lang="en-US">儲存 session 設定)</span></p>
